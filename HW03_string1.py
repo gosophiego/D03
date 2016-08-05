@@ -25,8 +25,11 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-    # +++your code here+++
-    return
+    if count < 10:
+        return 'Number of donuts: ' + str(count)
+    else:
+        return 'Number of donuts: many'
+
 
 
 # B. both_ends
@@ -35,8 +38,10 @@ def donuts(count):
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
 def both_ends(s):
-    # +++your code here+++
-    return
+    if len(s) < 2:
+        return ''
+    else:
+        return s[0] + s[1] + s[-2] + s[-1]
 
 
 # C. fix_start
@@ -49,8 +54,11 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-    # +++your code here+++
-    return
+    # Set x equal to the word that excludes the first character
+    x = s[1:]
+    # Replace the characters in x that are equal to s[0] with '*''
+    # And print the modified x starting with the first character, s[0]
+    return s[0] + x.replace(s[0], '*')
 
 
 # D. MixUp
@@ -61,8 +69,10 @@ def fix_start(s):
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
-    # +++your code here+++
-    return
+    # First, swap the first 2 characters of each string and set it to a2 and b2
+    a2 = b[0:2] + a[2:]
+    b2 = a[0:2] + b[2:]
+    return a2 + ' '+ b2
 
 
 # Provided simple test() function used in main() to print
@@ -106,6 +116,7 @@ def main():
     test(mix_up('dog', 'dinner'), 'dig donner')
     test(mix_up('gnash', 'sport'), 'spash gnort')
     test(mix_up('pezzy', 'firm'), 'fizzy perm')
+
 
 
 # Standard boilerplate to call the main() function.
